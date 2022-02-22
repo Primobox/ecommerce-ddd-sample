@@ -6,11 +6,14 @@ import java.util.Map;
 
 public class Panier {
 
+    private final IdentifiantDuPanier identifiantDuPanier;
+
     private final Map<ReferenceArticle, Article> articles;
 
     private Total total;
 
-    public Panier() {
+    public Panier(IdentifiantDuPanier identifiantDuPanier) {
+        this.identifiantDuPanier = identifiantDuPanier;
         this.articles = new HashMap<>();
         this.total = new Total(new BigDecimal(0));
     }
@@ -55,5 +58,9 @@ public class Panier {
 
     public String total() {
         return this.total.valeur().toString();
+    }
+
+    public IdentifiantDuPanier identifiant() {
+        return identifiantDuPanier;
     }
 }
